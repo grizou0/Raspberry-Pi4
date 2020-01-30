@@ -1,34 +1,34 @@
-# Raspberry-Pi4   Ref:https://qengineering.eu/install-opencv-4.2-on-raspberry-pi-4.html
+# Raspberry-Pi4   
+ Ref:https://qengineering.eu/install-opencv-4.2-on-raspberry-pi-4.html
 
 # DeepLearning
 # Installation OpenCV4.2
 
-$ sudo apt-get update
-$ sudo apt-get upgrade
+$ sudo apt-get update 
+$ sudo apt-get upgrade 
 
-$ sudo apt-get clean
-$ sudo apt-get autoremove
+$ sudo apt-get clean 
+$ sudo apt-get autoremove 
 
 # Dépendance
 
-
-$ sudo apt-get install build-essential cmake git unzip pkg-config
-$ sudo apt-get install libjpeg-dev libpng-dev libtiff-dev
-$ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev
-$ sudo apt-get install libgtk2.0-dev libcanberra-gtk*
-$ sudo apt-get install libxvidcore-dev libx264-dev libgtk-3-dev
-$ sudo apt-get install python3-dev python3-numpy python3-pip
-$ sudo apt-get install python-dev python-numpy
-$ sudo apt-get install libtbb2 libtbb-dev libdc1394-22-dev
-$ sudo apt-get install libv4l-dev v4l-utils
-$ sudo apt-get install libjasper-dev libopenblas-dev libatlas-base-dev libblas-dev
-$ sudo apt-get install liblapack-dev gfortran
-$ sudo apt-get install gcc-arm*
-$ sudo apt-get install protobuf-compiler
+$ sudo apt-get install build-essential cmake git unzip pkg-config 
+$ sudo apt-get install libjpeg-dev libpng-dev libtiff-dev 
+$ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev 
+$ sudo apt-get install libgtk2.0-dev libcanberra-gtk* 
+$ sudo apt-get install libxvidcore-dev libx264-dev libgtk-3-dev 
+$ sudo apt-get install python3-dev python3-numpy python3-pip 
+$ sudo apt-get install python-dev python-numpy 
+$ sudo apt-get install libtbb2 libtbb-dev libdc1394-22-dev 
+$ sudo apt-get install libv4l-dev v4l-utils 
+$ sudo apt-get install libjasper-dev libopenblas-dev libatlas-base-dev libblas-dev 
+$ sudo apt-get install liblapack-dev gfortran 
+$ sudo apt-get install gcc-arm* 
+$ sudo apt-get install protobuf-compiler 
 
 # Download
 
-$ cd ~
+$ cd ~ 
 $ wget -O opencv.zip https://github.com/opencv/opencv/archive/4.2.0.zip
 $ wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.2.0.zip
 $ unzip opencv.zip

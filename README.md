@@ -94,32 +94,30 @@ $ sudo apt-get update
 
 # Restauration mémoire
 
-$ sudo nano /etc/dphys-swapfile
+$ sudo nano /etc/dphys-swapfile  
 
-set CONF_SWAPSIZE=100 with the Nano text editor
+set CONF_SWAPSIZE=100 with the Nano text editor  
 
-$ cd ~
-$ rm opencv.zip
-$ rm opencv_contrib.zip
-$ reboot
+$ cd ~  
+$ rm opencv.zip  
+$ rm opencv_contrib.zip  
+$ reboot  
 
-
-
-$ cd ~/.virtualenvs/cv420/lib/python3.7/site-packages
-$ ln -s /usr/local/lib/python3.7/site-packages/cv2/python-3.7/cv2.cpython-37m-arm-linux-gnueabihf.so
-$ cd ~
+$ cd ~/.virtualenvs/cv420/lib/python3.7/site-packages  
+$ ln -s /usr/local/lib/python3.7/site-packages/cv2/python-3.7/cv2.cpython-37m-arm-linux-gnueabihf.so  
+$ cd ~  
 
 # Example d'affichage de version OpenCV (c++)
 
-#include <opencv2/opencv.hpp>
-int main(void)
-{
-    std::cout << "OpenCV version : " << cv::CV_VERSION << endl;
-    std::cout << "Major version : " << cv::CV_MAJOR_VERSION << endl;
-    std::cout << "Minor version : " << cv::CV_MINOR_VERSION << endl;
-    std::cout << "Subminor version : " << cv::CV_SUBMINOR_VERSION << endl;
-    std::cout << cv::getBuildInformation() << std::endl;
-}
+#include <opencv2/opencv.hpp>  
+int main(void)  
+{  
+    std::cout << "OpenCV version : " << cv::CV_VERSION << endl;  
+    std::cout << "Major version : " << cv::CV_MAJOR_VERSION << endl;  
+    std::cout << "Minor version : " << cv::CV_MINOR_VERSION << endl;  
+    std::cout << "Subminor version : " << cv::CV_SUBMINOR_VERSION << endl;  
+    std::cout << cv::getBuildInformation() << std::endl;  
+}  
 
 
 

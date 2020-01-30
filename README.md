@@ -12,46 +12,46 @@ $ sudo apt-get autoremove
 
 # Dépendance
 
-$ sudo apt-get install build-essential cmake git unzip pkg-config 
-$ sudo apt-get install libjpeg-dev libpng-dev libtiff-dev 
-$ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev 
-$ sudo apt-get install libgtk2.0-dev libcanberra-gtk* 
-$ sudo apt-get install libxvidcore-dev libx264-dev libgtk-3-dev 
-$ sudo apt-get install python3-dev python3-numpy python3-pip 
-$ sudo apt-get install python-dev python-numpy 
-$ sudo apt-get install libtbb2 libtbb-dev libdc1394-22-dev 
-$ sudo apt-get install libv4l-dev v4l-utils 
-$ sudo apt-get install libjasper-dev libopenblas-dev libatlas-base-dev libblas-dev 
-$ sudo apt-get install liblapack-dev gfortran 
-$ sudo apt-get install gcc-arm* 
-$ sudo apt-get install protobuf-compiler 
+$ sudo apt-get install build-essential cmake git unzip pkg-config  
+$ sudo apt-get install libjpeg-dev libpng-dev libtiff-dev  
+$ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev  
+$ sudo apt-get install libgtk2.0-dev libcanberra-gtk*  
+$ sudo apt-get install libxvidcore-dev libx264-dev libgtk-3-dev  
+$ sudo apt-get install python3-dev python3-numpy python3-pip  
+$ sudo apt-get install python-dev python-numpy  
+$ sudo apt-get install libtbb2 libtbb-dev libdc1394-22-dev  
+$ sudo apt-get install libv4l-dev v4l-utils  
+$ sudo apt-get install libjasper-dev libopenblas-dev libatlas-base-dev libblas-dev  
+$ sudo apt-get install liblapack-dev gfortran  
+$ sudo apt-get install gcc-arm*  
+$ sudo apt-get install protobuf-compiler  
 
 # Download
 
-$ cd ~ 
-$ wget -O opencv.zip https://github.com/opencv/opencv/archive/4.2.0.zip
-$ wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.2.0.zip
-$ unzip opencv.zip
-$ unzip opencv_contrib.zip
+$ cd ~  
+$ wget -O opencv.zip https://github.com/opencv/opencv/archive/4.2.0.zip  
+$ wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.2.0.zip  
+$ unzip opencv.zip  
+$ unzip opencv_contrib.zip  
 
 
-$ mv opencv-4.2.0 opencv
-$ mv opencv_contrib-4.2.0 opencv_contrib
+$ mv opencv-4.2.0 opencv  
+$ mv opencv_contrib-4.2.0 opencv_contrib  
 
 # Creation d'un environnement virtuel
-$ sudo pip3 install virtualenv
-$ sudo pip3 install virtualenvwrapper
+$ sudo pip3 install virtualenv  
+$ sudo pip3 install virtualenvwrapper  
 
 
-$ echo "export WORKON_HOME=$HOME/.virtualenvs" >> ~/.bashrc
-$ echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
-$ source ~/.bashrc
-$ mkvirtualenv cv420
+$ echo "export WORKON_HOME=$HOME/.virtualenvs" >> ~/.bashrc  
+$ echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc  
+$ source ~/.bashrc  
+$ mkvirtualenv cv420  
 
 # Compilation 
-$ cd ~/opencv/
-$ mkdir build
-$ cd build
+$ cd ~/opencv/ 
+$ mkdir build  
+$ cd build  
 
 
 $ cmake -D CMAKE_BUILD_TYPE=RELEASE \

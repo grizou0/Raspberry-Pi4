@@ -213,9 +213,7 @@ int main(void)
     std::cout << "Subminor version : " << cv::CV_SUBMINOR_VERSION << endl;  
     std::cout << cv::getBuildInformation() << std::endl;  
 }  
-#----------------------------------------------------
-# OpenVino et movidius usb
-#---------------------------------------------------
+
 
 
 

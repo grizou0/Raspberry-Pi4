@@ -79,19 +79,22 @@ $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
         -D BUILD_EXAMPLES=OFF ..
 
 # Reservation de la mémoire (4096M)
-$ sudo nano /etc/dphys-swapfile
-
-
-$ sudo /etc/init.d/dphys-swapfile stop
-$ sudo /etc/init.d/dphys-swapfile start
+$ sudo nano /etc/dphys-swapfile  
+$ sudo /etc/init.d/dphys-swapfile stop  
+$ sudo /etc/init.d/dphys-swapfile start  
 # Compilation et installation
 
-$ make -j4
-$ sudo make install
-$ sudo ldconfig
-$ sudo apt-get update
+$ make -j4  
+$ sudo make install  
+$ sudo ldconfig  
+$ sudo apt-get update  
+
+Si erreur apres la compilation make -j4, on recommence :
+$ sudo rm clean
+$ make
 
 # Restauration mémoire
+Une fois la compilation faite sans erreur, on peut l'installer.
 
 $ sudo nano /etc/dphys-swapfile  
 
@@ -105,6 +108,38 @@ $ reboot
 $ cd ~/.virtualenvs/cv420/lib/python3.7/site-packages  
 $ ln -s /usr/local/lib/python3.7/site-packages/cv2/python-3.7/cv2.cpython-37m-arm-linux-gnueabihf.so  
 $ cd ~  
+# --------------------------------------------------------------------------------------------------
+Après installation, on retrouve Opencv dans /usr/local/include/opencv4/opencv2/
+# --------------------------------------------------------------------------------------------------
+camera.cpp
+
+
+#include "opencv2/opencv.hpp"
+using namespace cv;
+int main(int argc, char** argv)
+{
+    VideoCapture cap;
+    // open the default camera, use something different from 0 otherwise;
+    // Check VideoCapture documentation.
+    if(!cap.open(0))
+        return 0;
+    for(;;)
+    {
+          Mat frame;
+          cap >> frame;
+          if( frame.empty() ) break; // end of video stream
+          imshow("this is you, smile! :)", frame);
+          if( waitKey(10) == 27 ) break; // stop capturing by pressing ESC 
+    }
+    // the camera will be closed automatically upon exit
+    // cap.close();
+    return 0;
+}
+
+compilation:
+
+ou par makefile
+# --------------------------------------------------------------------------------------------------
 
 # Example d'affichage de version OpenCV (c++)
 
@@ -117,7 +152,9 @@ int main(void)
     std::cout << "Subminor version : " << cv::CV_SUBMINOR_VERSION << endl;  
     std::cout << cv::getBuildInformation() << std::endl;  
 }  
-
+#----------------------------------------------------
+# OpenVino et movidius usb
+#---------------------------------------------------
 
 
 

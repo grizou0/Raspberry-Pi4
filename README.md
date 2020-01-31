@@ -103,112 +103,108 @@ set CONF_SWAPSIZE=100 with the Nano text editor
 $ cd ~  
 $ rm opencv.zip  
 $ rm opencv_contrib.zip  
-$ reboot  
+$ reboot   
 
-$ cd ~/.virtualenvs/cv420/lib/python3.7/site-packages  
-$ ln -s /usr/local/lib/python3.7/site-packages/cv2/python-3.7/cv2.cpython-37m-arm-linux-gnueabihf.so  
-$ cd ~  
+$ cd ~/.virtualenvs/cv420/lib/python3.7/site-packages   
+$ ln -s /usr/local/lib/python3.7/site-packages/cv2/python-3.7/cv2.cpython-37m-arm-linux-gnueabihf.so   
+$ cd ~   
 # ----------------------------------------------------------------------------
-Après installation, on retrouve Opencv dans /usr/local/include/opencv4/opencv2/
+Après installation, on retrouve Opencv dans /usr/local/include/opencv4/opencv2/   
 # ----------------------------------------------------------------------------
-camera.cpp
-
-
-#include "opencv2/opencv.hpp"  
-using namespace cv;  
-int main(int argc, char** argv)  
-{  
-    VideoCapture cap;  
-    // open the default camera, use something different from 0 otherwise;  
-    // Check VideoCapture documentation.  
-    if(!cap.open(0))  return 0;  
-    for(;;)  
-    {  
-          Mat frame;  
-          cap >> frame;  
-          if( frame.empty() ) break; // end of video stream  
-          imshow("this is you, smile! :)", frame);  
-          if( waitKey(10) == 27 ) break; // stop capturing by pressing ESC   
-    }  
-    // the camera will be closed automatically upon exit  
-    // cap.close();  
-    return 0;  
-}  
+camera.cpp    
+#include "opencv2/opencv.hpp"     
+using namespace cv;    
+int main(int argc, char** argv)     
+{    
+    VideoCapture cap;     
+    // open the default camera, use something different from 0 otherwise;     
+    // Check VideoCapture documentation.     
+    if(!cap.open(0))  return 0;     
+    for(;;)    
+    {   
+          Mat frame;     
+          cap >> frame;   
+          if( frame.empty() ) break; // end of video stream    
+          imshow("this is you, smile! :)", frame);     
+          if( waitKey(10) == 27 ) break; // stop capturing by pressing ESC     
+    }    
+    // the camera will be closed automatically upon exit    
+    // cap.close();    
+    return 0;    
+}    
 #----------------------------------------------------------
 compilation:
 
 ou par makefile
-# --------------------------------------------------------------------------
+# -----------------------------------------------------------
 # Example lecture video
-//Uncomment the following line if you are compiling this code in Visual Studio
-//#include "stdafx.h"
+//Uncomment the following line if you are compiling this code in Visual Studio    
+//#include "stdafx.h"    
+#include <opencv2/opencv.hpp>    
+#include <iostream>    
+using namespace cv;    
+using namespace std;    
+    
+int main(int argc, char* argv[])    
+{    
+ //open the video file for reading    
+ VideoCapture cap("D:/My OpenCV Website/A Herd of Deer Running.mp4");     
+      
+ // if not success, exit program    
+ if (cap.isOpened() == false)      
+ {     
+  cout << "Cannot open the video file" << endl;    
+  cin.get(); //wait for any key press    
+  return -1;    
+ }    
+     
+ //Uncomment the following line if you want to start the video in the middle    
+ //cap.set(CAP_PROP_POS_MSEC, 300);     
+    
+ //get the frames rate of the video    
+ double fps = cap.get(CAP_PROP_FPS);     
+ cout << "Frames per seconds : " << fps << endl;    
+    
+ String window_name = "My First Video";    
+    
+ namedWindow(window_name, WINDOW_NORMAL); //create a window    
+    
+ while (true)     
+ {     
+  Mat frame;     
+  bool bSuccess = cap.read(frame); // read a new frame from video     
+      
+  //Breaking the while loop at the end of the video     
+  if (bSuccess == false)     
+  {     
+   cout << "Found the end of the video" << endl;     
+   break;    
+  }     
+      
+  //show the frame in the created window    
+  imshow(window_name, frame);    
+    
+  //wait for for 10 ms until any key is pressed.      
+  //If the 'Esc' key is pressed, break the while loop.    
+  //If the any other key is pressed, continue the loop     
+  //If any key is not pressed withing 10 ms, continue the loop   
+  if (waitKey(10) == 27)    
+  {     
+   cout << "Esc key is pressed by user. Stoppig the video" << endl;     
+   break;     
+  }     
+ }     
+  
+ return 0;     
+   
+}    
+# Example d'affichage de version OpenCV (c++)    
 
-#include <opencv2/opencv.hpp>
-#include <iostream>
-
-using namespace cv;
-using namespace std;
-
-int main(int argc, char* argv[])
-{
- //open the video file for reading
- VideoCapture cap("D:/My OpenCV Website/A Herd of Deer Running.mp4"); 
-
- // if not success, exit program
- if (cap.isOpened() == false)  
- {
-  cout << "Cannot open the video file" << endl;
-  cin.get(); //wait for any key press
-  return -1;
- }
-
- //Uncomment the following line if you want to start the video in the middle
- //cap.set(CAP_PROP_POS_MSEC, 300); 
-
- //get the frames rate of the video
- double fps = cap.get(CAP_PROP_FPS); 
- cout << "Frames per seconds : " << fps << endl;
-
- String window_name = "My First Video";
-
- namedWindow(window_name, WINDOW_NORMAL); //create a window
-
- while (true)
- {
-  Mat frame;
-  bool bSuccess = cap.read(frame); // read a new frame from video 
-
-  //Breaking the while loop at the end of the video
-  if (bSuccess == false) 
-  {
-   cout << "Found the end of the video" << endl;
-   break;
-  }
-
-  //show the frame in the created window
-  imshow(window_name, frame);
-
-  //wait for for 10 ms until any key is pressed.  
-  //If the 'Esc' key is pressed, break the while loop.
-  //If the any other key is pressed, continue the loop 
-  //If any key is not pressed withing 10 ms, continue the loop
-  if (waitKey(10) == 27)
-  {
-   cout << "Esc key is pressed by user. Stoppig the video" << endl;
-   break;
-  }
- }
-
- return 0;
-
-}
-# Example d'affichage de version OpenCV (c++)
-
-#include <opencv2/opencv.hpp>  
-int main(void)  
-{  
-    std::cout << "OpenCV version : " << cv::CV_VERSION << endl;  
-    std::cout << "Major version : " << cv::CV_MAJOR_VERSION << endl;  
+#include <opencv2/opencv.hpp>       
+int main(void)      
+{    
+    std::cout << "OpenCV version : " << cv::CV_VERSION << endl;      
+    std::cout << "Major version : " << cv::CV_MAJOR_VERSION << endl;    
     std::cout << "Minor version : " << cv::CV_MINOR_VERSION << endl;  
     std::cout << "Subminor version : " << cv::CV_SUBMINOR_VERSION << endl;  
     std::cout << cv::getBuildInformation() << std::endl;  

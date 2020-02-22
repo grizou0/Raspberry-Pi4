@@ -1,8 +1,12 @@
+
 # Raspberry-Pi4   
  Ref:https://qengineering.eu/install-opencv-4.2-on-raspberry-pi-4.html
 
+Ce chapitre propose un teste de deeplearning ssd-caffe avec le Raspberry Pi4 et le sitck usb movidius.
+Sur la version Pi4, on doit utiliser les librairies Openvino de chez intel.
+
 # DeepLearning
-# Installation OpenCV4.2
+# Installation OpenCV4.2 (pas obligatoire si on utilise opnevino)
 
 $ sudo apt-get update  
 $ sudo apt-get upgrade   
@@ -210,6 +214,9 @@ int main(void)
     std::cout << cv::getBuildInformation() << std::endl;  
 }  
 
+# Installation OpenVino sur Raspberry Pi4
+# Essai demo avec fichier proto xml et bin.
+# Conversion modele ssd_caffe vers xml et bin.
 
 
 

@@ -1,1 +1,14 @@
 # Conversion Prototxt (caffe) vers openvino (xml et bin proto)
+# Installation du fichier de conversion mo.py (sur ubuntu)
+On doit avoir la version python3                  
+python --version              
+
+cd /opt/intel/openvino/deployment_tools/model_optimizer/install_prerequisites       
+sudo ./install_prerequisites.sh       
+
+
+# Utilisation:
+python3 mo.py --input_model <INPUT_MODEL>.caffemodel
+python3 mo.py --input_model bvlc_alexnet.caffemodel --input_proto bvlc_alexnet.prototxt
+
+

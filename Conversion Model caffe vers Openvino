@@ -11,4 +11,47 @@ sudo ./install_prerequisites.sh
 python3 mo.py --input_model <INPUT_MODEL>.caffemodel
 python3 mo.py --input_model bvlc_alexnet.caffemodel --input_proto bvlc_alexnet.prototxt
 
+# Example de conversion _iter_5910.caffemodel et MobileNetSSD_deploy.prototxt      
+
+jp@jp-G750JH://opt/intel/openvino/deployment_tools/model_optimizer$ python3 mo_caffe.py --input_model _iter_5910.caffemodel --input_proto MobileNetSSD_deploy.prototxt
+Model Optimizer arguments:
+Common parameters:
+	- Path to the Input Model: 	/opt/intel/openvino_2020.1.023/deployment_tools/model_optimizer/_iter_5910.caffemodel
+	- Path for generated IR: 	/opt/intel/openvino_2020.1.023/deployment_tools/model_optimizer/.
+	- IR output name: 	_iter_5910
+	- Log level: 	ERROR
+	- Batch: 	Not specified, inherited from the model
+	- Input layers: 	Not specified, inherited from the model
+	- Output layers: 	Not specified, inherited from the model
+	- Input shapes: 	Not specified, inherited from the model
+	- Mean values: 	Not specified
+	- Scale values: 	Not specified
+	- Scale factor: 	Not specified
+	- Precision of IR: 	FP32
+	- Enable fusing: 	True
+	- Enable grouped convolutions fusing: 	True
+	- Move mean values to preprocess section: 	False
+	- Reverse input channels: 	False
+Caffe specific parameters:
+	- Path to Python Caffe* parser generated from caffe.proto: 	mo/front/caffe/proto
+	- Enable resnet optimization: 	True
+	- Path to the Input prototxt: 	/opt/intel/openvino_2020.1.023/deployment_tools/model_optimizer/MobileNetSSD_deploy.prototxt
+	- Path to CustomLayersMapping.xml: 	Default
+	- Path to a mean file: 	Not specified
+	- Offsets for a mean file: 	Not specified
+Model Optimizer version: 	2020.1.0-61-gd349c3ba4a
+
+[ SUCCESS ] Generated IR version 10 model.
+[ SUCCESS ] XML file: /opt/intel/openvino_2020.1.023/deployment_tools/model_optimizer/./_iter_5910.xml
+[ SUCCESS ] BIN file: /opt/intel/openvino_2020.1.023/deployment_tools/model_optimizer/./_iter_5910.bin
+[ SUCCESS ] Total execution time: 17.71 seconds. 
+[ SUCCESS ] Memory consumed: 208 MB. 
+jp@jp-G750JH://opt/intel/openvino/deployment_tools/model_optimizer$ ls
+extensions              _iter_5910.bin         _iter_5910.solverstate  MobileNetSSD_deploy.prototxt  mo_caffe.py  mo_onnx.py  requirements_caffe.txt  requirements_onnx.txt  solver_train.prototxt
+install_prerequisites   _iter_5910.caffemodel  _iter_5910.xml          MobileNetSSD_test.prototxt    mo_kaldi.py  mo.py       requirements_kaldi.txt  requirements_tf.txt    tf_call_ie_layer
+_iter_17921.caffemodel  _iter_5910.mapping     mo                      MobileNetSSD_train.prototxt   mo_mxnet.py  mo_tf.py    requirements_mxnet.txt  requirements.txt       version.txt
+
+
+
+
 

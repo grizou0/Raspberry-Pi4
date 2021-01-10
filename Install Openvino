@@ -30,4 +30,6 @@ cmake -DCMAKE_BUILD_TYPE=Release /opt/intel/openvino/deployment_tools/inference_
   make -j4 Camera
 
 Ajout d'un nouveau projet, on copie un répertoire dans opt/intel/openvino/inference_engine/samples/cpp
-et on modifie le cmake avec le bon répertoire correspondant et le nom correcte du fichier cpp.
+et on modifie le CMmakeLists.txt avec le bon répertoire correspondant et le nom correcte du fichier cpp.
+Ensuite on retrasnfert avec cmake...
+

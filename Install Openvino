@@ -3,3 +3,7 @@
 # Installation et test Stick usb Movidius sous ubuntu (openvino)
 https://software.intel.com/en-us/articles/get-started-with-neural-compute-stick
 
+1- Téléchargement openvino toolkit    
+2- Installation openvino  
+3- Creation d'un répertoire de travail.
+

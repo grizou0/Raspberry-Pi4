@@ -6,7 +6,7 @@ Ce chapitre propose un teste de deeplearning ssd-caffe avec le Raspberry Pi4 et 
 Sur la version Pi4, on doit utiliser les librairies Openvino de chez intel.
 
 # DeepLearning
-# Installation OpenCV4.2 (pas obligatoire si on utilise opnevino)
+# Installation OpenCV4.2 (pas obligatoire si on utilise openvino)
 
 $ sudo apt-get update  
 $ sudo apt-get upgrade   

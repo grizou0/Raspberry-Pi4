@@ -3,7 +3,31 @@
 # Installation et test Stick usb Movidius sous ubuntu (openvino)
 https://software.intel.com/en-us/articles/get-started-with-neural-compute-stick
 
-1- Téléchargement openvino toolkit    
-2- Installation openvino  
-3- Creation d'un répertoire de travail.
+1- Téléchargement openvino toolkit   
+    cd ~/Downloads/   
+On retrouve le package l_openvino_toolkit_..    
+#Creation d'un répertoire de /opt    
+    sudo mkdir -p /opt/intel/openvino   
+#Décompression et installation dans opt/intel/openvino
+    sudo tar -xf  l_openvino_toolkit_runtime_raspbian_p_<version>.tgz --strip 1 -C /opt/intel/openvino
 
+#Creation d'un répertoire de travail dans home/xx/openvino
+#et cd openvino
+sudo apt install cmake    
+Setup variable d'environement   
+echo "source /opt/intel/openvino/bin/setupvars.sh" >> ~/.bashrc 
+sudo usermod -a -G users "$(whoami)"    
+Installation driver usb movidius (placér le stick usb movidius)   
+sh /opt/intel/openvino/install_dependencies/install_NCS_udev_rules.sh
+
+#Transfert des fichiers de travail dans openvino   
+Pour raspberry:   
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-march=armv7-a" /opt/intel/openvino/deployment_tools/inference_engine/samples/cpp   
+Pour Ubuntu   
+cmake -DCMAKE_BUILD_TYPE=Release /opt/intel/openvino/deployment_tools/inference_engine/samples/cpp    
+
+#Compilation
+  make -j4 Camera
+
+Ajout d'un nouveau projet, on copie un répertoire dans opt/intel/openvino/inference_engine/samples/cpp
+et on modifie le cmake avec le bon répertoire correspondant et le nom correcte du fichier cpp.

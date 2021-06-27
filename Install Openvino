@@ -18,8 +18,12 @@ Setup variable d'environement
 echo "source /opt/intel/openvino/bin/setupvars.sh" >> ~/.bashrc 
 sudo usermod -a -G users "$(whoami)"    
 Installation driver usb movidius (placér le stick usb movidius)   
-sh /opt/intel/openvino/install_dependencies/install_NCS_udev_rules.sh
-
+!!! si le boot est en 64bits, il y aura une erreur IE_.... dans l'installation.                                    
+Il faut donc supprimer la ligne dans le fichier config.txt:                                               
+#arm_64bit=1                                                          
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                         
+sh /opt/intel/openvino/install_dependencies/install_NCS_udev_rules.sh                                    
+ 
 #Transfert des fichiers de travail dans openvino   
 Pour raspberry:   
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-march=armv7-a" /opt/intel/openvino/deployment_tools/inference_engine/samples/cpp   

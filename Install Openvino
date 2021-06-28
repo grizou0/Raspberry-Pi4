@@ -18,9 +18,11 @@ Setup variable d'environement
 echo "source /opt/intel/openvino/bin/setupvars.sh" >> ~/.bashrc 
 sudo usermod -a -G users "$(whoami)"    
 Installation driver usb movidius (placér le stick usb movidius)   
-!!! si le boot est en 64bits, il y aura une erreur IE_.... dans l'installation.                                    
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                                     
+Pour le Raspberry Pi 4,si le boot est en 64bits, il y aura une erreur IE_.... dans l'installation.                                    
 Il faut donc supprimer la ligne dans le fichier config.txt:                                               
-#arm_64bit=1                                                          
+#arm_64bit=1.                                  
+Une fois l'installation terminée, on peut réactiver arm_64bit=1.                                      
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                         
 sh /opt/intel/openvino/install_dependencies/install_NCS_udev_rules.sh                                    
  
